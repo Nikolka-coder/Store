@@ -1,0 +1,29 @@
+<table class="table">
+    <thead>
+        <tr>
+            <td>Id</td>
+            <td>Name</td>
+            <td>Category</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let i of data?.items">
+            <td>{{i.id}}</td>
+            <td>{{i.name}}</td>
+            <td>{{i.categoryName}}</td>
+        </tr>
+    </tbody>
+</table> 
+<p>{{data?.items.length + ((page-1)* size)}} of {{data?.totalItemsCount}}</p>
+<div>
+    <button (click)="previous()">previous</button>
+    <button (click)="next()">next</button>
+</div>
+<br>
+<div>
+    <input type="text" placeholder="product name" [(ngModel)]="name"> <br>
+    <select required [(ngModel)]="category">
+        <option *ngFor="let i of categories" [value]="i.categoryID">{{i.categoryName}}</option>
+    </select> <br>
+    <button (click)=create()>Create</button>
+</div>
